@@ -1,7 +1,7 @@
 {
 	"name": "dmwpb-animate-blocks",
 	"version": "1.0.0",
-	"description": "This plugin extends <strong>[group, columns, column, paragraph, image, heading]</strong> Gutenberg core blocks to enable reveal animations.",
+	"description": "This plugin extends <strong>[group, columns, column, paragraph, image, heading, buttons, button]</strong> Gutenberg core blocks to enable reveal animations.",
 	"author": "Damian Muti <damianmuti@gmail.com> (https://damianmuti.com)",
 	"license": "GPL-2.0-or-later",
 	"scripts": {

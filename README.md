@@ -1,6 +1,6 @@
 # [DMWPB] Animate Blocks
 
-This plugin extends <strong>[group, columns, column, paragraph, image, heading]</strong> Gutenberg core blocks to enable reveal animations.
+This plugin extends <strong>[group, columns, column, paragraph, image, heading, buttons, button]</strong> Gutenberg core blocks to enable reveal animations.
 
 <br>
 

@@ -10,7 +10,7 @@ License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-This plugin extends [group, columns, column, paragraph, image, heading] Gutenberg core blocks to enable reveal animations.
+This plugin extends <strong>[group, columns, column, paragraph, image, heading, buttons, button]</strong> Gutenberg core blocks to enable reveal animations.
 
 == Installation ==
 
