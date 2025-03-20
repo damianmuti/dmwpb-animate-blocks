@@ -32,7 +32,7 @@ import './editor.scss';
 /**
  * Internal dependencies.
  */
-import { allowedBlocks } from './allowed-blocks';
+import { allowedBlocks, defaultAttributes } from './helpers';
 
 
 /**
@@ -44,14 +44,11 @@ import { allowedBlocks } from './allowed-blocks';
  * @return {Element} Element to render.
  */
 let multiplier = 1;
-const addAnimationInspectorControls = createHigherOrderComponent( ( BlockEdit, ref ) => {	
+const addAnimationInspectorControls = createHigherOrderComponent( ( BlockEdit ) => {	
 	return ( props ) => {
 
-		// Check if the block has a parent
-		const blockHasParent = ( clientId ) => clientId !== wp.data.select( 'core/block-editor' ).getBlockHierarchyRootClientId( clientId );
-
 		// If the block is not allowed or has a parent, return the block as-is
-		if ( allowedBlocks.indexOf( props.name ) === -1 || blockHasParent(props.clientId) ) {
+		if ( allowedBlocks.indexOf( props.name ) === -1 ) {
 			return <BlockEdit { ...props } />;
 		}
 
@@ -62,16 +59,21 @@ const addAnimationInspectorControls = createHigherOrderComponent( ( BlockEdit, r
 		const setHasAnimation = ( value ) => {
 			props.setAttributes({
 				dmwpb__hasAnimation: Boolean( value )
-			})
+			});
 
 			// Reset multiplier
 			setAnimationMultiplier(1);
+
+			// Reset all settings
+			if( !value ) {
+				resetValues();
+			}
 		};
 	
 		const setAnimationType = ( value ) => {
 			props.setAttributes({
 				dmwpb__animationType: String( value )
-			})
+			});
 
 			// Reset multiplier
 			setAnimationMultiplier(1);
@@ -80,7 +82,7 @@ const addAnimationInspectorControls = createHigherOrderComponent( ( BlockEdit, r
 		const setAnimationDirection = ( value ) => {
 			props.setAttributes({
 				dmwpb__animationDirection: Boolean( value )
-			})
+			});
 
 			setAnimationMultiplier( multiplier + 1 );
 		};
@@ -88,7 +90,7 @@ const addAnimationInspectorControls = createHigherOrderComponent( ( BlockEdit, r
 		const setAnimationDelay = ( value ) => {
 			props.setAttributes({
 				dmwpb__animationDelay: Number( value )
-			})
+			});
 
 			setAnimationMultiplier( multiplier + 1 );
 		};
@@ -96,7 +98,7 @@ const addAnimationInspectorControls = createHigherOrderComponent( ( BlockEdit, r
 		const setAnimationDuration = ( value ) => {
 			props.setAttributes({
 				dmwpb__animationDuration: Number( value )
-			})
+			});
 
 			setAnimationMultiplier( multiplier + 1 );
 		};
@@ -104,7 +106,7 @@ const addAnimationInspectorControls = createHigherOrderComponent( ( BlockEdit, r
 		const setAnimationBlur = ( value ) => {
 			props.setAttributes({
 				dmwpb__animationBlur: Number( value )
-			})
+			});
 
 			setAnimationMultiplier( multiplier + 1 );
 		};
@@ -112,8 +114,19 @@ const addAnimationInspectorControls = createHigherOrderComponent( ( BlockEdit, r
 		const setScrollDirection = ( value ) => {
 			props.setAttributes({
 				dmwpb__scrollDirection: String( value )
-			})
+			});
 		};
+
+		const resetValues = () => {
+			props.setAttributes({
+				dmwpb__animationType: defaultAttributes.dmwpb__animationType.default,
+				dmwpb__animationDirection: defaultAttributes.dmwpb__animationDirection.default,
+				dmwpb__animationDelay: defaultAttributes.dmwpb__animationDelay.default,
+				dmwpb__animationDuration: defaultAttributes.dmwpb__animationDuration.default,
+				dmwpb__animationBlur: defaultAttributes.dmwpb__animationBlur.default,
+				dmwpb__scrollDirection: defaultAttributes.dmwpb__scrollDirection.default,
+			});
+		}
 
 		const setFieldHelp = ( text ) => {
 			return(

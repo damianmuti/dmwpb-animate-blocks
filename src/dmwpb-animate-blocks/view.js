@@ -25,7 +25,7 @@ const observerCallback = (entries, observer) => {
     let el = entry.target;
     let blockAnimation = el.style.animationName;
     let blockScrollDirection = el.getAttribute( 'data-scroll-direction' );
-    let blockAnimationDirection = el.getAttribute( 'data-animation-direction' )
+    let blockAnimationDirection = el.getAttribute( 'data-animation-direction' );
     
     if (entry.isIntersecting) {
       el.classList.add( 'dmwpb__do--animation' );

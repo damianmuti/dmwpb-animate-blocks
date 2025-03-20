@@ -20,7 +20,7 @@ import './style.scss';
  * Internal dependencies
  */
 import './edit';
-import { allowedBlocks } from './allowed-blocks';
+import { allowedBlocks, defaultAttributes } from './helpers';
 
 
 /**
@@ -39,34 +39,7 @@ function addAnimationAttributes( settings, name ) {
 
 	settings.attributes = {
 		...settings.attributes,
-		dmwpb__hasAnimation: {
-			type: "boolean",
-			default: false
-		},
-		dmwpb__animationDirection: {
-			type: "boolean",
-			default: false
-		},
-		dmwpb__scrollDirection: {
-			type: "string",
-			default: "default"
-		},
-		dmwpb__animationType: {
-			type: "string",
-			default: "fade-in"
-		},
-		dmwpb__animationDelay: {
-			type: "number",
-			default: 0
-		},
-		dmwpb__animationDuration: {
-			type: "number",
-			default: 500
-		},
-		dmwpb__animationBlur: {
-			type: "number",
-			default: 0
-		}
+		...defaultAttributes
 	};
 
 	return settings;
