@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       [DMWPB] Animate Blocks
  * Plugin URL:				https://damianmuti.com
- * Description:       This plugin extends <strong>[group, columns, column, paragraph, image, heading]</strong> Gutenberg core blocks to enable reveal animations.
+ * Description:       This plugin extends <strong>[group, columns, column, paragraph, image, heading, buttons, button]</strong> Gutenberg core blocks to enable reveal animations.
  * Version:           1.0.0
  * Requires at least: 6.7
  * Requires PHP:      7.4
