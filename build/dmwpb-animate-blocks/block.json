@@ -6,7 +6,7 @@
   "title": "[DMWPB] Animate Blocks",
   "category": "layout",
   "icon": "smiley",
-  "description": "This plugin extends <strong>[group, column, paragraph, image, heading]</strong> Gutenberg core blocks to enable reveal animations.",
+  "description": "This plugin extends <strong>[group, columns, column, paragraph, image, heading, buttons, button]</strong> Gutenberg core blocks to enable reveal animations.",
   "example": {},
   "supports": {
     "html": false
