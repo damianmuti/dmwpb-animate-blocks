@@ -1,8 +1,10 @@
+![Image header](https://damianmuti.com/external/template.png)
+
+<br>
+
 # [DMWPB] Animate Blocks
 
 This plugin extends <strong>[group, columns, column, paragraph, image, heading, buttons, button]</strong> Gutenberg core blocks to enable reveal animations.
-
-<br>
 
 ## F.A.Q
 
@@ -22,14 +24,12 @@ No. Javascript is used to add/remove/toggle classes depending on the settings, b
 
 The plugin uses server-side rendering for each of the animated blocks, so there won't be any issues upon deactivating it.
 
-<br>
 
 ## Requirements
 
 - Requires at least: 6.7+
 - Requires PHP: 7.4+
 
-<br>
 
 ## Installation
 1. [Download the ZIP file](https://github.com/damianmuti/dmwpb-animate-blocks/archive/refs/heads/main.zip).
