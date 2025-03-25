@@ -167,7 +167,7 @@ const addAnimationInspectorControls = createHigherOrderComponent( ( BlockEdit ) 
 								<ToggleControl
 									__nextHasNoMarginBottom
 									label="Reverse animation?"
-									help="Set to true to reverse the animation when scrolling back to top of the page."
+									help="Set to true to play the animation in reverse."
 									checked={ props.attributes.dmwpb__animationDirection }
 									onChange={ setAnimationDirection }
 								/>
