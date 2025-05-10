@@ -23,6 +23,7 @@
 const observerCallback = (entries, observer) => {
   entries.forEach(entry => {
     let el = entry.target;
+    let ob = observer;
     let blockAnimation = el.style.animationName;
     let blockScrollDirection = el.getAttribute( 'data-scroll-direction' );
     let blockAnimationDirection = el.getAttribute( 'data-animation-direction' );
@@ -31,14 +32,17 @@ const observerCallback = (entries, observer) => {
       el.classList.add( 'dmwpb__do--animation' );
       
       if( blockScrollDirection == 'both') {
-        blockAnimationReflow(el, blockAnimation);
 
         if(dmwpb_direction === 'dowm') {
           entry.target.classList.remove(`do--${blockAnimationDirection}`);
         }
 
-        if(dmwpb_direction === 'up') {
-          entry.target.classList.add(`do--${blockAnimationDirection}`);
+        if(dmwpb_direction === 'up' && entry.intersectionRatio >= .7) {
+          if(!entry.target.classList.contains(`do--${blockAnimationDirection}`)) {
+            blockAnimationReflow(el, blockAnimation);
+            entry.target.classList.add(`do--${blockAnimationDirection}`);
+          }
+          
         }
       }
       
@@ -70,8 +74,10 @@ const blockAnimationReflow = (el, name) => {
 
 const observer = new IntersectionObserver(observerCallback , {
   root: null, // Root element, null means the browser viewport
-  rootMargin: '-200px',
-  threshold: 0 // Trigger the callback when 100% of the target is visible
+  rootMargin: '0px',
+  trackVisibility: true,
+  delay: 100,
+  threshold: [.3, .7] // Trigger the callback when 100% of the target is visible
 });
 
 const elementsToReveal = document.querySelectorAll( '[class*="dmwpb__block--animation"]' );
