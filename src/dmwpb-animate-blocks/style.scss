@@ -9,6 +9,7 @@
 
 .dmwpb__block--animation {
 	animation-play-state: paused;
+	will-change: transform, opacity, filter;
 
 	&.dmwpb__do--animation {
 		animation-play-state: running;
